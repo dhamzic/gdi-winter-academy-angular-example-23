@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SocketService } from './shared/services/socket.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'gdi-winter-academy-demo-frontend-homemade-amateur-verified';
+
+  constructor(private socketService: SocketService){}
+
+  ngOnInit(): void{
+    this.socketService.buildConnection();
+  }
 }
